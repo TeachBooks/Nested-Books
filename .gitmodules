@@ -1,0 +1,3 @@
+[submodule "book/external/MUDE"]
+	path = book/external/MUDE
+	url = https://github.com/TUDelft-CITG/MUDE
