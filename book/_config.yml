@@ -1,0 +1,19 @@
+################################################################################
+# General settings
+title: JB Submodule test
+author: Caspar
+
+################################################################################
+# Notebook execution on compiling
+execute:
+  execute_notebooks: false
+  timeout: 60 
+  allow_errors: false
+
+################################################################################
+# Sphinx settings
+sphinx:
+    # Use newer version of Mathjax for latex equation formatting
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+
