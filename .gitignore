@@ -1,0 +1,41 @@
+# Build artifacts
+_build/
+
+# Cache
+__pycache__/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Jupyter
+.ipynb_checkpoints
+
+# IDE's
+.spyderproject
+.spyproject
+.vscode
+open_book.sh
+
+# Images from Python code
+*_py.svg
+
+# Jupyter-lite
+_output/
