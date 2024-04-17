@@ -51,7 +51,7 @@ When you add the external book as a submodule to your repository, Git will pin i
 ````
 
 ## Build book on GitLab/GitHub with submodule
-Doesn't work yet, see https://github.com/TeachBooks/Nested-Books/issues/1
+If you're using a GitLab/GitHub workflow, make sure you force it to fetch al the submodules as well. If you're using the TeachBooks GitHub/GitLab workflow, that has been taken care of.
 
 ## More info
 [Here](https://git-scm.com/book/en/v2/Git-Tools-Submodules) you can find more information on Git submodules.
