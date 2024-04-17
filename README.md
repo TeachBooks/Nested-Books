@@ -15,7 +15,7 @@ First, let's define the location where the external book should live. Good pract
 Now we can add the external book in this folder. You'll need to use the CLI for that (open the CLI by opening Git Bash or click `Repository` - `Open in command prompt` in GitHub Desktop):
 
     cd book/external
-    git submodule add <SSH-clone link to external book (https://github.com/tudelft-citg/mude.git for example)>
+    git submodule add <https-clone link to external book (https://github.com/tudelft-citg/mude.git for example)>
 
 You can see that the `book/external` directory now contains a directory with the name of the external repository (`MUDE` or example), so the result is equivalent to simply running a `git clone` inside `book/external`. What is important to note here is that the contents of `book/external/<external repository>` are not part of the parent repository. Instead, `book/external/`book/external/<external repository>` is a fully functional Git Repository itself. This means that you can make changes to the external book, from inside the parent book. After the `git submodule` command, you should make a commit:
 
