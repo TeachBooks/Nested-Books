@@ -31,7 +31,7 @@ GitHub Desktop will recognize that you've created a submodule:
 
 ![Commit in GitHub Desktop](figures/GitHub_desktop_commit.png)
 
-You can see it points to a specific commit, this is the version which will show up in your parent repository. You can also open the repository, this allows you to make changes later on.
+You can see it points to a specific commit, this is the version which will show up in your parent repository. You can also open the repository, this allows you to make changes later on. For now, commit both `.gitmodules` and `book\external\<external repository>` to your parent repository.
 
 ```
 ````
