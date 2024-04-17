@@ -26,6 +26,7 @@ You can see that the `book/external` directory now contains a directory with the
 ```{tab-item} ... using GitHub Desktop
     ...
 ```
+````
 
 Now, you can add sections of the external book to `_toc.yml`:
 
@@ -47,6 +48,7 @@ When you add the external book as a submodule to your repository, Git will pin i
 ```{tab-item} ... using GitHub Desktop
     ...
 ```
+````
 
 ## More info
 [Here](https://git-scm.com/book/en/v2/Git-Tools-Submodules) you can find more information on Git submodules.
