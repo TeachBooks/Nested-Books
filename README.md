@@ -12,18 +12,30 @@ Now we can add the external book in this folder. You'll need to use the CLI for 
     cd book/external
     git submodule add <https-clone link to external book (https://github.com/tudelft-citg/mude.git for example)>
 
-You can see that the `book/external` directory now contains a directory with the name of the external repository (`MUDE` or example), so the result is equivalent to simply running a `git clone` inside `book/external`. What is important to note here is that the contents of `book/external/<external repository>` are not part of the parent repository. Instead, `book/external/`book/external/<external repository>` is a fully functional Git Repository itself. This means that you can make changes to the external book, from inside the parent book. After the `git submodule` command, you should make a commit:
+You can see that the `book/external` directory now contains a directory with the name of the external repository (`MUDE` or example), so the result is equivalent to simply running a `git clone` inside `book/external`. What is important to note here is that the contents of `book/external/<external repository>` are not part of the parent repository. Instead, `book/external/<external repository>` is a fully functional Git Repository itself. This means that you can make changes to the external book, from inside the parent book.
 
-... using CLI
+After the `git submodule` command, you can make a commit:
+
+### Commit submodule using CLI
     git commit -m "Add external book"
 
-... using GitHub Desktop
-    ...
+### Commit submodule using GitHub Desktop:
+
+GitHub Desktop will recognize that you've created a submodule:
+![Commit in GitHub Desktop](figures/GitHub_desktop_commit.png)
+
+You can see it points to a specific commit, this is the version which will show up in your parent repository. You can also open the repository, this allows you to make changes later on.
+
 
 Now, you can add sections of the external book to `_toc.yml`:
 
     chapters:
     - file: external/MUDE/book/intro.md
+
+## Editing
+If you want to make an edit to the content of an external repository which is a submodule of your parent repository, you'll need to make changes to the external repository first so that the parent repository has a commit to point to.
+
+**To be written**
 
 ## Cloning
 If you're cloning a repository that features submodules, the directories of the submodules will not be populated by default. To fix that, you need to do a recursive clone (i.e., clone the parent repository, as well as the submodules):
