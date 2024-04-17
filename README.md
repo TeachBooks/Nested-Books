@@ -26,6 +26,7 @@ You can see that the `book/external` directory now contains a directory with the
 ```{tab-item} ... using GitHub Desktop
     ...
 ```
+````
 
 Now, you can add sections of the external book to `_toc.yml`:
 
@@ -47,6 +48,7 @@ When you add the external book as a submodule to your repository, Git will pin i
 ```{tab-item} ... using GitHub Desktop
     ...
 ```
+````
 
 ## Build book on GitLab/GitHub with submodule
 Doesn't work yet, see https://github.com/TeachBooks/Nested-Books/issues/1
