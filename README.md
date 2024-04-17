@@ -31,7 +31,7 @@ After the `git submodule` command, you can make a commit:
 
     ![Commit in GitHub Desktop](figures/GitHub_desktop_commit.png)
 
-    You can see it points to a specific commit, this is the version which will show up in your parent repository.
+    You can see it points to a specific commit, this is the version which will show up in your parent repository. You can also open the repository, this allows you to make changes later on.
 
 ```
 ````
@@ -40,6 +40,12 @@ Now, you can add sections of the external book to `_toc.yml`:
 
     chapters:
     - file: external/MUDE/book/intro.md
+
+## Editing
+If you want to make an edit to the content of an external repository which is a submodule of your parent repository, you'll need to make changes to the external repository first so that the parent repository has a commit to point to.
+
+```{error} To be written
+```
 
 ## Cloning
 If you're cloning a repository that features submodules, the directories of the submodules will not be populated by default. To fix that, you need to do a recursive clone (i.e., clone the parent repository, as well as the submodules):
