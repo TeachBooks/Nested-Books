@@ -17,14 +17,22 @@ Now we can add the external book in this folder. You'll need to use the CLI for 
     cd book/external
     git submodule add <https-clone link to external book (https://github.com/tudelft-citg/mude.git for example)>
 
-You can see that the `book/external` directory now contains a directory with the name of the external repository (`MUDE` or example), so the result is equivalent to simply running a `git clone` inside `book/external`. What is important to note here is that the contents of `book/external/<external repository>` are not part of the parent repository. Instead, `book/external/`book/external/<external repository>` is a fully functional Git Repository itself. This means that you can make changes to the external book, from inside the parent book. After the `git submodule` command, you should make a commit:
+You can see that the `book/external` directory now contains a directory with the name of the external repository (`MUDE` or example), so the result is equivalent to simply running a `git clone` inside `book/external`. What is important to note here is that the contents of `book/external/<external repository>` are not part of the parent repository. Instead, `book/external/<external repository>` is a fully functional Git Repository itself. This means that you can make changes to the external book, from inside the parent book.
+
+After the `git submodule` command, you can make a commit:
 
 ````{tab-set}
 ```{tab-item} ... using CLI
     git commit -m "Add external book"
 ```
 ```{tab-item} ... using GitHub Desktop
-    ...
+
+    GitHub Desktop will recognize that you've created a submodule:
+
+    ![Commit in GitHub Desktop](figures/GitHub_desktop_commit.png)
+
+    You can see it points to a specific commit, this is the version which will show up in your parent repository.
+
 ```
 ````
 
