@@ -69,4 +69,3 @@ If you're using a GitLab/GitHub workflow, make sure you force it to fetch al the
 
 ## More info
 [Here](https://git-scm.com/book/en/v2/Git-Tools-Submodules) you can find more information on Git submodules.
-
