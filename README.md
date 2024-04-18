@@ -58,7 +58,7 @@ First, make some changes in your external repository, which is stored locally wi
 
 As soon as you've made the change, GitHub desktop shows you for the parent repository that there are changes in the external repository:
 
-![Change in submodule](submodule_change_first_commit.png)
+![Change in submodule](figures/submodule_change_first_commit.png)
 
 As you can see, it demands you to commit those changes in the external repository first. Let's do that (eventually by click `Open repository`) and eventually push your changes to the external's repository GitHub/GitLab as well.
 
