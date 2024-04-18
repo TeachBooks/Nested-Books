@@ -62,6 +62,11 @@ As soon as you've made the change, GitHub desktop shows you for the parent repos
 
 As you can see, it demands you to commit those changes in the external repository first. Let's do that (eventually by click `Open repository`) and eventually push your changes to the external's repository GitHub/GitLab as well.
 
+Now, GitHub Desktop shows for the parent repository that that are changes in the submodule:
+
+![Update nested repository](figures/update_nested_repo.png)
+
+Commit this change to the parent repository, which will chang the commit to which it pins.
 
 ````
 `````
