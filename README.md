@@ -36,7 +36,26 @@ Now, you can add sections of the external book to `_toc.yml`:
 ## Editing
 If you want to make an edit to the content of an external repository which is a submodule of your parent repository, you'll need to make changes to the external repository first so that the parent repository has a commit to point to.
 
-**To be written**
+### ... using CLI
+
+To be written
+
+
+### ... using GitHub Desktop
+
+First, make some changes in your external repository, which is stored locally within your parent repository. You might want to create a separate branch for this (on the external repository). If you've opened the external repository in GitHub desktop the workflow is not different than for normal non-nested repositories.
+
+As soon as you've made the change, GitHub desktop shows you for the parent repository that there are changes in the external repository:
+
+![Change in submodule](figures/submodule_change_first_commit.png)
+
+As you can see, it demands you to commit those changes in the external repository first. Let's do that (eventually by click `Open repository`) and eventually push your changes to the external's repository GitHub/GitLab as well.
+
+Now, GitHub Desktop shows for the parent repository that that are changes in the submodule:
+
+![Update nested repository](figures/update_nested_repo.png)
+
+Commit this change to the parent repository, which will chang the commit to which it pins.
 
 ## Cloning
 If you're cloning a repository that features submodules, the directories of the submodules will not be populated by default. To fix that, you need to do a recursive clone (i.e., clone the parent repository, as well as the submodules):
@@ -44,17 +63,22 @@ If you're cloning a repository that features submodules, the directories of the 
     git clone --recurse-submodules <link to parent repository>
 
 ## The external book is updated
-When you add the external book as a submodule to your repository, Git will pin its version. When the external book is updated, you'll need to manually pull the updates to the parent book. GitHub Desktop will notify you on this. To this end, you can use the following command:
+When you add the external book as a submodule to your repository, Git will pin its version. When the external book is updated, you'll need to manually pull the updates to the parent book:
 
-... using CLI
+### ... using CLI
     git submodule update --remote
 
-... using GitHub Desktop
-    ...
+### ... using GitHub Desktop
+First, pull changes for the external repository which is stored locally in your parent repository
+
+Now, GitHub Desktop shows for the parent repository that that are changes in the submodule:
+
+![Update nested repository](figures/update_nested_repo.png)
+
+Commit this change to the parent repository, which will chang the commit to which it pins.
 
 ## Build book on GitLab/GitHub with submodule
 If you're using a GitLab/GitHub workflow, make sure you force it to fetch al the submodules as well. If you're using the TeachBooks GitHub/GitLab workflow, that has been taken care of.
 
 ## More info
 [Here](https://git-scm.com/book/en/v2/Git-Tools-Submodules) you can find more information on Git submodules.
-
