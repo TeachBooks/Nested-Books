@@ -53,14 +53,21 @@ If you're cloning a repository that features submodules, the directories of the 
     git clone --recurse-submodules <link to parent repository>
 
 ## The external book is updated
-When you add the external book as a submodule to your repository, Git will pin its version. When the external book is updated, you'll need to manually pull the updates to the parent book. GitHub Desktop will notify you on this. To this end, you can use the following command:
+When you add the external book as a submodule to your repository, Git will pin its version. When the external book is updated, you'll need to manually pull the updates to the parent book:
 
 ````{tab-set}
 ```{tab-item} ... using CLI
     git submodule update --remote
 ```
 ```{tab-item} ... using GitHub Desktop
-    ...
+First, pull changes for the external repository which is stored locally in your parent repository
+
+Now, GitHub Desktop shows for the parent repository that that are changes in the submodule:
+
+![Update nested repository](figures/update_nested_repo.png)
+
+Commit this change to the parent repository, which will chang the commit to which it pins.
+
 ```
 ````
 
