@@ -2,7 +2,7 @@
 
 ```{admonition} User types
 :class: tip
-This section is useful for user type 4-6.
+This section is useful for user type 4-5.
 ```
 
 ## Adding to a new or existing book
