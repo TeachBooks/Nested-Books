@@ -44,8 +44,27 @@ Now, you can add sections of the external book to `_toc.yml`:
 ## Editing
 If you want to make an edit to the content of an external repository which is a submodule of your parent repository, you'll need to make changes to the external repository first so that the parent repository has a commit to point to.
 
+`````{tab-set}
+````{tab-item} ... using CLI
+
 ```{error} To be written
 ```
+
+
+````
+````{tab-item} ... using GitHub Desktop
+
+First, make some changes in your external repository, which is stored locally within your parent repository. You might want to create a separate branch for this (on the external repository). If you've opened the external repository in GitHub desktop the workflow is not different than for normal non-nested repositories.
+
+As soon as you've made the change, GitHub desktop shows you for the parent repository that there are changes in the external repository:
+
+![Change in submodule](submodule_change_first_commit.png)
+
+As you can see, it demands you to commit those changes in the external repository first. Let's do that (eventually by click `Open repository`) and eventually push your changes to the external's repository GitHub/GitLab as well.
+
+
+````
+`````
 
 ## Cloning
 If you're cloning a repository that features submodules, the directories of the submodules will not be populated by default. To fix that, you need to do a recursive clone (i.e., clone the parent repository, as well as the submodules):
