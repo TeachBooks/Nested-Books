@@ -80,5 +80,10 @@ Commit this change to the parent repository, which will chang the commit to whic
 ## Build book on GitLab/GitHub with submodule
 If you're using a GitLab/GitHub workflow, make sure you force it to fetch al the submodules as well. If you're using the TeachBooks GitHub/GitLab workflow, that has been taken care of.
 
+You might want the title of you book page in the table of contents to be different than the title provided as the first header in your nested file. You can adapt the title by specifying it in `_toc.yml`:
+
+    - file: <somefile>
+      title: <Some custom title to show in the table of contents>
+
 ## More info
 [Here](https://git-scm.com/book/en/v2/Git-Tools-Submodules) you can find more information on Git submodules.
