@@ -88,7 +88,7 @@ If you're using a GitLab/GitHub workflow, make sure you force it to fetch al the
 ## Delete submodules
 Deleting submodules is a bit notrocious... These steps [https://www.baeldung.com/ops/git-submodule-add-remove]() proved to be useful:
 
-### Checkout to main
+### 1. Checkout to main
 
 #### ... using CLI
     git checkout main
@@ -96,21 +96,21 @@ Deleting submodules is a bit notrocious... These steps [https://www.baeldung.com
 #### ... using GitHub Desktop
 Select main branch
 
-### Deinitialize submodule
+### 2. Deinitialize submodule
     
     git submodule deinit -f book/external/<external repository>
 
-### Remove submodule Git directory
+### 3. Remove submodule Git directory
 Directly from file explorer or
 
     rm -rf .git/modules/book/external/<external repository>
 
-### Remove from `.gitmodules`
+### 4. Remove from `.gitmodules`
 Directly with text editor or:
 
     git config -f .gitmodules --remove-section submodule.book/external/<external repository>
 
-### Stage Changes to `.gitmodules`
+### 5. Stage Changes to `.gitmodules`
 
 #### ... using CLI
     git add .gitmodules
@@ -118,10 +118,10 @@ Directly with text editor or:
 #### ... using GitHub Desktop
 Directly commit the change shown
 
-### Remove from Git cache
+### 6. Remove from Git cache
     git rm --cached book/external<external repository>
 
-### Commit and push changes
+### 7. Commit and push changes
 
 #### ... using CLI
     
@@ -132,7 +132,7 @@ Directly commit the change shown
 #### ... using GitHub Desktop
 Directly commit and push the changes shown
 
-### Merge with other branches
+### 8. Merge with other branches
 Merge this change with all other branches which still have this submodule.
 
 
