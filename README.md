@@ -85,5 +85,56 @@ Commit this change to the parent repository, which will chang the commit to whic
 ## Build book on GitLab/GitHub with submodule
 If you're using a GitLab/GitHub workflow, make sure you force it to fetch al the submodules as well. If you're using the TeachBooks GitHub/GitLab workflow, that has been taken care of.
 
+## Delete submodules
+Deleting submodules is a bit notrocious... These steps [https://www.baeldung.com/ops/git-submodule-add-remove]() proved to be useful:
+
+### Checkout to main
+
+#### ... using CLI
+    git checkout main
+
+#### ... using GitHub Desktop
+Select main branch
+
+### Deinitialize submodule
+    
+    git submodule deinit -f book/external/<external repository>
+
+### Remove submodule Git directory
+Directly from file explorer or
+
+    rm -rf .git/modules/book/external/<external repository>
+
+### Remove from `.gitmodules`
+Directly with text editor or:
+
+    git config -f .gitmodules --remove-section submodule.book/external/<external repository>
+
+### Stage Changes to `.gitmodules`
+
+#### ... using CLI
+    git add .gitmodules
+
+#### ... using GitHub Desktop
+Directly commit the change shown
+
+### Remove from Git cache
+    git rm --cached book/external<external repository>
+
+### Commit and push changes
+
+#### ... using CLI
+    
+    git add .
+    git commit -m 'rm submodule: logstash'
+    git push
+
+#### ... using GitHub Desktop
+Directly commit and push the changes shown
+
+### Merge with other branches
+Merge this change with all other branches which still have this submodule.
+
+
 ## More info
 [Here](https://git-scm.com/book/en/v2/Git-Tools-Submodules) you can find more information on Git submodules.
