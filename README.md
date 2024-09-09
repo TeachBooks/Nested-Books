@@ -103,7 +103,7 @@ Commit this change to the parent repository, which will chang the commit to whic
 If you're using a GitLab/GitHub workflow, make sure you force it to fetch al the submodules as well. If you're using the TeachBooks GitHub/GitLab workflow, that has been taken care of.
 
 ## Delete submodules
-Deleting submodules is a bit notrocious... These steps [https://www.baeldung.com/ops/git-submodule-add-remove]() proved to be useful:
+Deleting submodules is a bit notrocious... These steps [https://www.baeldung.com/ops/git-submodule-add-remove](https://www.baeldung.com/ops/git-submodule-add-remove) proved to be useful:
 
 ### 1. Checkout to main
 
