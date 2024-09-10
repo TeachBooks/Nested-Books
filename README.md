@@ -100,13 +100,19 @@ Select main branch
     
     git submodule deinit -f book/external/<external repository>
 
+_Note: this doesn't always work the first time, so if you get a warning, re-run after removing the directory in the next step._
+
 ### 3. Remove submodule Git directory
 Directly from file explorer or
 
+#### ... using `rm`
     rm -rf .git/modules/book/external/<external repository>
 
+#### ... using Command Prompt
+    rmdir /s /q .git\modules\book\external\<external repository>
+
 ### 4. Remove from `.gitmodules`
-Directly with text editor or:
+Directly with text editor (look in the top level of your repository) ,or:
 
     git config -f .gitmodules --remove-section submodule.book/external/<external repository>
 
@@ -114,9 +120,10 @@ Directly with text editor or:
 
 #### ... using CLI
     git add .gitmodules
+_no need to commit yet_
 
 #### ... using GitHub Desktop
-Directly commit the change shown
+Don't commit the change to `.gitmodules` yet
 
 ### 6. Remove from Git cache
     git rm --cached book/external<external repository>
