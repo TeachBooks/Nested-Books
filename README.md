@@ -60,13 +60,13 @@ To be written
 ````
 ````{tab-item} ... using GitHub Desktop
 
-*1. Clarifications*
+**1. Clarifications**
 
 It is helpful to make the distinction between the external repository (as a 'freestanding' repository) and the nested external repository. In GitHub Desktop you can see the path by hovering above the cloned repository.
 
 ```{figure} figures/nested_external_2.png
 ---
-width: 700
+width: 450
 align: center
 ---
 External Repository
@@ -74,7 +74,7 @@ External Repository
 
 ```{figure} figures/nested_external_1.png
 ---
-width: 700
+width: 450
 align: center
 ---
 Nested External Repository
@@ -84,19 +84,19 @@ From the path, you can see that the bottom `TeachBooks` repository is nested whi
 
 ```{figure} figures/alias.png
 ---
-width: 700
+width: 450
 align: center
 ---
 Create Alias
 ```
 
-Now that we have located the right folder `book/external/<external repository> on GitHub Desktop, let's make some changes to your external repository (which is stored locally within your parent repository). You might want to create a separate branch for this. The git workflow is not different than for normal non-nested repositories.
+Now that we have located the right folder `book/external/<external repository>` on GitHub Desktop, let's make some changes to your external repository (which is stored locally within your parent repository). You might want to create a separate branch in GitLab/GitHub on the external repository for this. The git workflow is not different than for normal non-nested repositories.
 
-2. Make some changes
+**2. Make some changes**
 
-If you want to edit a document from the external book, you have do make changes to this document in the external repository but through the parent book. How can you do this?
+If you want to edit a document from the external book, you have do make changes to this document in the external repository but through the parent repository. How can you do this?
 
-- On GitHub Desktop, open the parent repository
+- On GitHub Desktop, open the **parent** repository
 - On Vs Code, open the file you want to edit, it is located in the book/external/<external repository> folder
 - Make some changes
 
@@ -110,7 +110,7 @@ align: center
 Change in Submodule
 ```
 
-3. Commit to the external repository
+**3. Commit to the external repository**
 
 As you can see, GitHub desktop recognizes that there are changes in the nested external repository. You'll need to commit those to the external repository. Simply click on `Open Repository`. As you can see from the path by hovering above the current repository, the repository you 'cloned' is nested. Go ahead and give it an alias to keep an overview.
 
@@ -118,13 +118,13 @@ GitHub Desktop has automatically opened the external repository and all your cha
 
 ```{figure} figures/changes.png
 ---
-width: 700
+width: 450
 align: center
 ---
 Changes
 ```
 
-4. Commit to the parent repository
+**4. Commit to the parent repository**
 
 Now return to your parent repository. GitHub Desktop shows in the parent repository that there *have been* changes in the submodule, and that the parent repository is ready to be 'updated'. 
 
@@ -140,7 +140,7 @@ In particular, it says:
 
 ```{figure} figures/commit.png
 ---
-width: 700
+width: 500
 align: center
 ---
 New Commit
