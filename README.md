@@ -112,17 +112,9 @@ Change in Submodule
 
 3. Commit to the external repository
 
-As you can see, GitHub desktop recognizes that there are changes in the nested external repository. You'll need to commit those to the external repository. Simply click on `Open Repository`. 
+As you can see, GitHub desktop recognizes that there are changes in the nested external repository. You'll need to commit those to the external repository. Simply click on `Open Repository`. As you can see from the path by hovering above the current repository, the repository you 'cloned' is nested. Go ahead and give it an alias to keep an overview.
 
-```{figure} figures/external_repo.png
----
-width: 700
-align: center
----
-Open External Repository
-```
-
-GitHub Desktop will automatically open the external repository and all your changes will be visible here. Make a new branch, commit to the new branch and push your changes to the external's repository GitHub/GitLab as well.
+GitHub Desktop has automatically opened the external repository and all your changes are visible here. Make a new branch, commit to the new branch and push your changes to the external's repository GitHub/GitLab as well.
 
 ```{figure} figures/changes.png
 ---
@@ -132,19 +124,9 @@ align: center
 Changes
 ```
 
-As you can see, the repository you 'cloned' is nested. Go ahead and give it an alias to keep the overview.
-
-```{figure} figures/nested_external_3.png
----
-width: 700
-align: center
----
-New External Repository
-```
-
 4. Commit to the parent repository
 
-Once you've committed and pushed, return to your parent repository. GitHub Desktop shows in the parent repository that there *have been* changes in the submodule, and that the parent repository is ready to be 'updated'.
+Now return to your parent repository. GitHub Desktop shows in the parent repository that there *have been* changes in the submodule, and that the parent repository is ready to be 'updated'. 
 
 ```{figure} figures/update_nested_repo.png
 ---
@@ -164,9 +146,7 @@ align: center
 New Commit
 ```
 
-Git uses these commit codes to know which version of the document to refer to.
-
-Commit this change to the parent repository, which will chang the commit to which it pins. Finally, push your changes to GitLab/GitHub.
+Git uses these commit codes to know which version of the document to refer to. Commit this change to the parent repository, which will change the commit to which it pins. Finally, push your changes to GitLab/GitHub.
 ````
 `````
 
