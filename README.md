@@ -60,7 +60,8 @@ To be written
 ````
 ````{tab-item} ... using GitHub Desktop
 
-0. Clarifications
+*1. Clarifications*
+
 It is helpful to make the distinction between the external repository (as a 'freestanding' repository) and the nested external repository. In GitHub Desktop you can see the path by hovering above the cloned repository.
 
 ```{figure} figures/nested_external_2.png
@@ -91,7 +92,7 @@ Create Alias
 
 Now that we have located the right folder `book/external/<external repository> on GitHub Desktop, let's make some changes to your external repository (which is stored locally within your parent repository). You might want to create a separate branch for this. The git workflow is not different than for normal non-nested repositories.
 
-1. Make some changes
+2. Make some changes
 
 If you want to edit a document from the external book, you have do make changes to this document in the external repository but through the parent book. How can you do this?
 
@@ -109,7 +110,7 @@ align: center
 Change in Submodule
 ```
 
-2. Commit to the external repository
+3. Commit to the external repository
 
 As you can see, GitHub desktop recognizes that there are changes in the nested external repository. You'll need to commit those to the external repository. Simply click on `Open Repository`.
 
@@ -141,7 +142,7 @@ align: center
 New External Repository
 ```
 
-3. Commit to the parent repository
+4. Commit to the parent repository
 
 Once you've committed and pushed, return to your parent repository. GitHub Desktop shows in the parent repository that there *have been* changes in the submodule, and that the parent repository is ready to be 'updated'.
 
