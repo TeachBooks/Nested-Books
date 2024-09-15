@@ -6,6 +6,7 @@ This section is useful for user type 4-6.
 ```
 
 ## Adding external content to your book
+
 If you want to add the repository of an external book to the repository of your book you can do so by using Git Submodules. Your book is then called the parent book. This will basically nest the external repository in the parent repository, and it will appear as if we've manually copied the entire repository into the parent repository. I will use [this repository](https://github.com/TeachBooks/Nested-Books) as an example parent repository, and I'm going to add parts of an old [MUDE book](https://github.com/tudelft-citg/mude).
 
 First, let's define the location where the external book should live. Good practice is to put it in `book/external` to highlight the fact that the content is in fact part of an external book. So the first step is to create the subdirectory `book/external/` in your repository. If you'd like to do that with the command line interface (CLI) you can do so as follows:
@@ -150,12 +151,14 @@ Git uses these commit codes to know which version of the document to refer to. C
 ````
 `````
 
-## Cloning
+## Cloning with submodules
+
 If you're cloning a repository that features submodules, the directories of the submodules will not be populated by default. To fix that, you need to do a recursive clone (i.e., clone the parent repository, as well as the submodules):
 
     git clone --recurse-submodules <link to parent repository>
 
 ## The external book is updated
+
 When you add the external book as a submodule to your repository, Git will pin its version. When the external book is updated, you'll need to manually pull the updates to the parent book:
 
 ````{tab-set}
@@ -164,7 +167,7 @@ When you add the external book as a submodule to your repository, Git will pin i
 ```
 ```{tab-item} ... using GitHub Desktop
 
-irst, pull changes for the external repository which is stored locally in your parent repository
+First, pull changes for the external repository (which is stored locally in your parent repository)
 
 Now, GitHub Desktop shows for the parent repository that that are changes in the submodule:
 
@@ -176,12 +179,12 @@ Commit this change to the parent repository, which will chang the commit to whic
 ````
 
 ## Build book on GitLab/GitHub with submodule
-If you're using a GitLab/GitHub workflow, make sure you force it to fetch al the submodules as well. If you're using the TeachBooks GitHub/GitLab workflow, that has been taken care of.
+If you're using a GitLab/GitHub workflow, make sure you force it to fetch all the submodules as well. If you're using the TeachBooks GitHub/GitLab workflow, that has been taken care of.
 
 ## Delete submodules
 Deleting submodules is a bit notrocious... These steps [https://www.baeldung.com/ops/git-submodule-add-remove](https://www.baeldung.com/ops/git-submodule-add-remove) proved to be useful:
 
-### 1. Checkout to main
+**1. Checkout to main**
 
 ````{tab-set}
 ```{tab-item} ... using CLI
@@ -194,26 +197,27 @@ Select main branch
 ```
 ````
 
-### 2. Deinitialize submodule
-    
+**2. Deinitialize submodule**    
+
     git submodule deinit -f book/external/<external repository>
 
-### 3. Remove submodule Git directory
+**3. Remove submodule Git directory**
+
 Directly from file explorer or
 
     rm -rf .git/modules/book/external/<external repository>
 
-### 4. Remove from `.gitmodules`
+**4. Remove from `.gitmodules`**
+
 Directly with text editor or:
 
     git config -f .gitmodules --remove-section submodule.book/external/<external repository>
 
-### 5. Stage Changes to `.gitmodules`
+**5. Stage Changes to `.gitmodules`**
 
 ````{tab-set}
 ```{tab-item} ... using CLI
     git add .gitmodules
-
 
 ```
 ```{tab-item} ... using GitHub Desktop
@@ -222,10 +226,10 @@ Directly commit the change shown
 ```
 ````
 
-### 6. Remove from Git cache
+**6. Remove from Git cache**
     git rm --cached book/external<external repository>
 
-### 7. Commit and push changes
+**7. Commit and push changes**
 
 ````{tab-set}
 ```{tab-item} ... using CLI
@@ -233,19 +237,17 @@ Directly commit the change shown
     git commit -m 'rm submodule: logstash'
     git push
 
-
 ```
 ```{tab-item} ... using GitHub Desktop
 Directly commit and push the changes shown
 ```
 ````
 
-### 8. Delete repo and clone again
+**8. Delete repo and clone again**
 For some reason the existence of the submodule is stored locally somewhere. To prevent further issues, deleted the full parent repository and reclone it.
 
-### 9. Merge with other branches
+**9. Merge with other branches**
 Merge this change with all other branches which still have this submodule.
-
 
 ## More info
 [Here](https://git-scm.com/book/en/v2/Git-Tools-Submodules) you can find more information on Git submodules.
