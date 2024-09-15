@@ -112,17 +112,17 @@ Change in Submodule
 
 3. Commit to the external repository
 
-As you can see, GitHub desktop recognizes that there are changes in the nested external repository. You'll need to commit those to the external repository. Simply click on `Open Repository`.
+As you can see, GitHub desktop recognizes that there are changes in the nested external repository. You'll need to commit those to the external repository. Simply click on `Open Repository`. 
 
 ```{figure} figures/external_repo.png
 ---
 width: 700
 align: center
 ---
-Open Eternal Repository
+Open External Repository
 ```
 
-GitHub Desktop will automatically open the external repository and all your changes will be visible here. Commit and eventually push your changes to the external's repository GitHub/GitLab as well.
+GitHub Desktop will automatically open the external repository and all your changes will be visible here. Make a new branch, commit to the new branch and push your changes to the external's repository GitHub/GitLab as well.
 
 ```{figure} figures/changes.png
 ---
