@@ -1,66 +1,173 @@
 # Share content between books
 
-## Adding to a new or existing book
-If you want to add the repository of an external book to the repository of your parent book you can do so by using Git Submodules. This will basically nest the external repository in the parent repository, and it will appear as if we've manually copied the entire repository into the parent repository. I will use [this repository](https://github.com/TeachBooks/Nested-Books) as an example parent repository, and I'm going to add parts of an old [MUDE book](https://github.com/tudelft-citg/mude).
+```{admonition} User types
+:class: tip
+This section is useful for user type 4-6.
+```
 
-First, let's define the location where the external book should live. Good practise is to put it in `book/external` to highlight the fact that the content is in fact part of an external book. So the first step is to create the subdirectory `book/external/` in your repository. If you'd like to do that with the CLI you can do so as follows:
+## Adding external content to your book
+If you want to add the repository of an external book to the repository of your book you can do so by using Git Submodules. Your book is then called the parent book. This will basically nest the external repository in the parent repository, and it will appear as if we've manually copied the entire repository into the parent repository. I will use [this repository](https://github.com/TeachBooks/Nested-Books) as an example parent repository, and I'm going to add parts of an old [MUDE book](https://github.com/tudelft-citg/mude).
+
+First, let's define the location where the external book should live. Good practice is to put it in `book/external` to highlight the fact that the content is in fact part of an external book. So the first step is to create the subdirectory `book/external/` in your repository. If you'd like to do that with the command line interface (CLI) you can do so as follows:
 
     mkdir -p book/external
 
-Now we can add the external book in this folder. You'll need to use the CLI for that (open the CLI by opening Git Bash or click `Repository` - `Open in command prompt` in GitHub Desktop):
+Now we can add the external book in this folder. You'll need to use the CLI for that! (open the CLI by opening Git Bash or click `Repository` - `Open in command prompt` in GitHub Desktop):
 
     cd book/external
     git submodule add <https-clone link to external book (https://github.com/tudelft-citg/mude.git for example)>
 
-You can see that the `book/external` directory now contains a directory with the name of the external repository (`MUDE` or example), so the result is equivalent to simply running a `git clone` inside `book/external`. What is important to note here is that the contents of `book/external/<external repository>` are not part of the parent repository. Instead, `book/external/<external repository>` is a fully functional Git Repository itself. This means that you can make changes to the external book, from inside the parent book.
+You can see that the `book/external` directory now contains a directory with the name of the external repository (`MUDE` for example), so the result is equivalent to simply running a `git clone` inside `book/external`. What is important to note here is that the contents of `book/external/<external repository>` are not part of the parent repository. Instead, `book/external/<external repository>` is a fully functional Git Repository itself. This means that you can make changes to the external book, from inside the parent book.
 
-After the `git submodule` command, you can make a commit:
+After the `git submodule` command, you can make a commit to your parent repositery:
 
-### Commit submodule using CLI
+````{tab-set}
+```{tab-item} ... using CLI
     git commit -m "Add external book"
+```
+```{tab-item} ... using GitHub Desktop
 
-### Commit submodule using GitHub Desktop:
-
-GitHub Desktop will recognize that you've created a submodule:
+GitHub Desktop will recognize that you've created a submodule as indicated by `book/external/<external repository>`:
 
 ![Commit in GitHub Desktop](figures/GitHub_desktop_commit.png)
 
 For now, commit both `.gitmodules` and `book\external\<external repository>` to your parent repository.
 
+```
+````
 
-Now, you can add sections of the external book to `_toc.yml`:
+Now, you can add sections of the external book to the table of contents of your parent book (`_toc.yml`):
 
     chapters:
     - file: external/MUDE/book/intro.md
 
-You might want the title of you book page in the table of contents to be different than the title provided as the first header in your nested file. You can adapt the title by specifying it in `_toc.yml`:
+In the above line, I have added the introduction of the MUDE book to my book.
+
+You might want the title of your book page in the table of contents to be different than the title provided as the first header in your nested file. You can adapt the title by specifying it in `_toc.yml`:
 
     - file: <somefile>
       title: <Some custom title to show in the table of contents>
 
 ## Editing
-If you want to make an edit to the content of an external repository which is a submodule of your parent repository, you'll need to make changes to the external repository first so that the parent repository has a commit to point to.
 
-### ... using CLI
+If you want to make an edit to the content of an external repository, which is a submodule of your parent repository (meaning it's nested), you'll need to make changes to the external repository so that the parent repository has a commit to point to when 'updating' its content. You can do this from within the parent repository! We'll break down the steps:
+
+`````{tab-set}
+````{tab-item} ... using CLI
 
 To be written
 
+````
+````{tab-item} ... using GitHub Desktop
 
-### ... using GitHub Desktop
+0. Clarifications
+It is helpful to make the distinction between the external repository (as a 'freestanding' repository) and the nested external repository. In GitHub Desktop you can see the path by hovering above the cloned repository.
 
-First, make some changes in your external repository, which is stored locally within your parent repository. You might want to create a separate branch for this (on the external repository). If you've opened the external repository in GitHub desktop the workflow is not different than for normal non-nested repositories.
+```{figure} figures/nested_external_2.png
+---
+width: 700
+align: center
+---
+External Repository
+```
 
-As soon as you've made the change, GitHub desktop shows you for the parent repository that there are changes in the external repository:
+```{figure} figures/nested_external_1.png
+---
+width: 700
+align: center
+---
+Nested External Repository
+```
 
-![Change in submodule](figures/submodule_change_first_commit.png)
+From the path, you can see that the bottom `TeachBooks` repository is nested while the top one is not. We will call the nested repository the `external repository` from now on. In order to avoid confusion, you can give an 'alias' to the external repository by `Right Click` - `Create alias`.
 
-As you can see, it demands you to commit those changes in the external repository first. Let's do that (eventually by click `Open repository`) and eventually push your changes to the external's repository GitHub/GitLab as well.
+```{figure} figures/alias.png
+---
+width: 700
+align: center
+---
+Create Alias
+```
 
-Now, GitHub Desktop shows for the parent repository that that are changes in the submodule:
+Now that we have located the right folder `book/external/<external repository> on GitHub Desktop, let's make some changes to your external repository (which is stored locally within your parent repository). You might want to create a separate branch for this. The git workflow is not different than for normal non-nested repositories.
 
-![Update nested repository](figures/update_nested_repo.png)
+1. Make some changes
 
-Commit this change to the parent repository, which will chang the commit to which it pins.
+If you want to edit a document from the external book, you have do make changes to this document in the external repository but through the parent book. How can you do this?
+
+- On GitHub Desktop, open the parent repository
+- On Vs Code, open the file you want to edit, it is located in the book/external/<external repository> folder
+- Make some changes
+
+As soon as you've made the change to a document, that lives in the external repository, through the parent repository, GitHub Desktop shows you in the parent repository that there are changes in the external repository (Submodule Changes):
+
+```{figure} figures/submodule_change_first_commit.png
+---
+width: 700
+align: center
+---
+Change in Submodule
+```
+
+2. Commit to the external repository
+
+As you can see, GitHub desktop recognizes that there are changes in the nested external repository. You'll need to commit those to the external repository. Simply click on `Open Repository`.
+
+```{figure} figures/external_repo.png
+---
+width: 700
+align: center
+---
+Open Eternal Repository
+```
+
+GitHub Desktop will automatically open the external repository and all your changes will be visible here. Commit and eventually push your changes to the external's repository GitHub/GitLab as well.
+
+```{figure} figures/changes.png
+---
+width: 700
+align: center
+---
+Changes
+```
+
+As you can see, the repository you 'cloned' is nested. Go ahead and give it an alias to keep the overview.
+
+```{figure} figures/nested_external_3.png
+---
+width: 700
+align: center
+---
+New External Repository
+```
+
+3. Commit to the parent repository
+
+Once you've committed and pushed, return to your parent repository. GitHub Desktop shows in the parent repository that there *have been* changes in the submodule, and that the parent repository is ready to be 'updated'.
+
+```{figure} figures/update_nested_repo.png
+---
+width: 700
+align: center
+---
+Update nested repository
+```
+
+In particular, it says:
+
+```{figure} figures/commit.png
+---
+width: 700
+align: center
+---
+New Commit
+```
+
+Git uses these commit codes to know which version of the document to refer to.
+
+Commit this change to the parent repository, which will chang the commit to which it pins. Finally, push your changes to GitLab/GitHub.
+````
+`````
 
 ## Cloning
 If you're cloning a repository that features submodules, the directories of the submodules will not be populated by default. To fix that, you need to do a recursive clone (i.e., clone the parent repository, as well as the submodules):
@@ -70,74 +177,87 @@ If you're cloning a repository that features submodules, the directories of the 
 ## The external book is updated
 When you add the external book as a submodule to your repository, Git will pin its version. When the external book is updated, you'll need to manually pull the updates to the parent book:
 
-### ... using CLI
+````{tab-set}
+```{tab-item} ... using CLI
     git submodule update --remote
+```
+```{tab-item} ... using GitHub Desktop
 
-### ... using GitHub Desktop
-First, pull changes for the external repository which is stored locally in your parent repository
+irst, pull changes for the external repository which is stored locally in your parent repository
 
 Now, GitHub Desktop shows for the parent repository that that are changes in the submodule:
 
 ![Update nested repository](figures/update_nested_repo.png)
 
-Commit this change to the parent repository, which will change the commit to which it pins.
+Commit this change to the parent repository, which will chang the commit to which it pins.
+
+```
+````
 
 ## Build book on GitLab/GitHub with submodule
 If you're using a GitLab/GitHub workflow, make sure you force it to fetch al the submodules as well. If you're using the TeachBooks GitHub/GitLab workflow, that has been taken care of.
 
 ## Delete submodules
-Deleting submodules is a bit [notrocious](https://www.urbandictionary.com/define.php?term=notrocious)... These steps [https://www.baeldung.com/ops/git-submodule-add-remove](https://www.baeldung.com/ops/git-submodule-add-remove) proved to be useful:
+Deleting submodules is a bit notrocious... These steps [https://www.baeldung.com/ops/git-submodule-add-remove](https://www.baeldung.com/ops/git-submodule-add-remove) proved to be useful:
 
 ### 1. Checkout to main
 
-#### ... using CLI
+````{tab-set}
+```{tab-item} ... using CLI
     git checkout main
 
-#### ... using GitHub Desktop
+```
+```{tab-item} ... using GitHub Desktop
 Select main branch
+
+```
+````
 
 ### 2. Deinitialize submodule
     
     git submodule deinit -f book/external/<external repository>
 
-_Note: this doesn't always work the first time, so if you get a warning, re-run after removing the directory in the next step._
-
 ### 3. Remove submodule Git directory
 Directly from file explorer or
 
-#### ... using `rm`
     rm -rf .git/modules/book/external/<external repository>
 
-#### ... using Command Prompt
-    rmdir /s /q .git\modules\book\external\<external repository>
-
 ### 4. Remove from `.gitmodules`
-Directly with text editor (look in the top level of your repository) ,or:
+Directly with text editor or:
 
     git config -f .gitmodules --remove-section submodule.book/external/<external repository>
 
 ### 5. Stage Changes to `.gitmodules`
 
-#### ... using CLI
+````{tab-set}
+```{tab-item} ... using CLI
     git add .gitmodules
-_no need to commit yet_
 
-#### ... using GitHub Desktop
-Don't commit the change to `.gitmodules` yet
+
+```
+```{tab-item} ... using GitHub Desktop
+Directly commit the change shown
+
+```
+````
 
 ### 6. Remove from Git cache
     git rm --cached book/external<external repository>
 
 ### 7. Commit and push changes
 
-#### ... using CLI
-    
+````{tab-set}
+```{tab-item} ... using CLI
     git add .
     git commit -m 'rm submodule: logstash'
     git push
 
-#### ... using GitHub Desktop
+
+```
+```{tab-item} ... using GitHub Desktop
 Directly commit and push the changes shown
+```
+````
 
 ### 8. Delete repo and clone again
 For some reason the existence of the submodule is stored locally somewhere. To prevent further issues, deleted the full parent repository and reclone it.
