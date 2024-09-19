@@ -56,7 +56,7 @@ If you want to make an edit to the content of an external repository, which is a
 `````{tab-set}
 ````{tab-item} ... using CLI
 
-To be written
+CHANGES 
 
 ````
 ````{tab-item} ... using GitHub Desktop
