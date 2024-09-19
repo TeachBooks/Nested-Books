@@ -56,8 +56,83 @@ If you want to make an edit to the content of an external repository, which is a
 `````{tab-set}
 ````{tab-item} ... using CLI
 
-CHANGES 
+**1. Navigate to the parent repository**
 
+Open your terminal, for example Git Bash or the integrated terminal in VS Code and use the `cd` command followed by the full path of your parent repository that you have previously cloned to your laptop.
+
+    cd /<path>/<parent-repo>
+
+Alternatively, you can locate the submodule in your files, hover your mouse above the path and `right click` - `copy adress as text`. Then you can paste the adress in between quotation marks. (This works only on windows)
+
+    cd "C:\<path>\<parent-repo>"
+
+Once you are in the right folder, git bash will indicate the branch you are in in blue brackets.
+
+**2. Update the submodule**
+
+In case someone else has edited the content of the submodule you want to make sure that you ave pulled all recent changes.
+
+    git submodule update 
+
+**3. Navigate to the submodule**
+
+    cd /<path>/<parent-repo>/external/<submodule>
+
+Or 
+
+    cd "C:\<path>\<parent-repo>\external\<submodule>"
+
+**4. Checkout a new branch (optional)**
+
+It is good practice to create a new branch for every set of changes you make to the conent.
+
+    git checkout -b <new-branch>
+
+**5. Make changes, stage, and commit them in the submodule**
+
+Now you can make changes to your file. To open the file in VS Code type:
+
+    code <file-name.ext>
+
+Save the file in VS Code and return to the terminal. To stage all changes type:
+    
+    git add .
+
+If you only want to stage one file type:
+
+    git add <file-name.ext>
+
+Next commit the changes:
+
+    git commit -m "Commit message"
+
+**6. Push the submodule changes to its remote repository**
+
+Next you'll need to push the changes to the external repository. The syntax you need to follow to push is `<repository> <branch>`. The repository name will most likely be origin which refers to the cloned repository you are in.  
+
+    git push origin <branch-name>
+
+**7. Return to the parent repository**
+
+    cd /<path>/<parent-repo>
+
+Or
+
+    cd "C:\<path>\<parent-repo>"
+
+**8. Stage the submodule update in the parent repo and commit**
+
+Now we have to 'update' the parent repository with the changes pushed to the external repository (submodule).
+First, stage the submodule update. Then commit the change.
+
+    git add book/external/<submodule>
+    git commit -m "Updated submodule"
+
+**9. Push the parent repository changes**
+
+Finally push the update to the remote repository. 
+
+    git push origin <branch-name>
 ````
 ````{tab-item} ... using GitHub Desktop
 
