@@ -133,6 +133,7 @@ First, stage the submodule update. Then commit the change.
 Finally push the update to the remote repository. 
 
     git push origin <branch-name>
+    
 ````
 ````{tab-item} ... using GitHub Desktop
 
@@ -301,7 +302,9 @@ Directly commit the change shown
 ```
 ````
 
+
 **6. Remove from Git cache**
+
     git rm --cached book/external<external repository>
 
 **7. Commit and push changes**
@@ -311,7 +314,6 @@ Directly commit the change shown
     git add .
     git commit -m 'rm submodule: logstash'
     git push
-
 ```
 ```{tab-item} ... using GitHub Desktop
 Directly commit and push the changes shown
