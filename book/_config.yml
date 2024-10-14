@@ -3,11 +3,13 @@
 title: JB Submodule test
 author: Caspar
 
+only_build_toc_files: true
+exclude_patterns: [.github, .gitignore, .git]
 ################################################################################
 # Notebook execution on compiling
 execute:
   execute_notebooks: false
-  timeout: 60 
+  timeout: 60
   allow_errors: false
 
 ################################################################################
@@ -15,5 +17,3 @@ execute:
 sphinx:
     # Use newer version of Mathjax for latex equation formatting
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
-
