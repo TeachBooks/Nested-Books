@@ -1,6 +1,6 @@
 # Create a book based on several other books using git submodule
 
-The goal is to be able to build a jupyter book based on the template and several
+The goal is to build a jupyter book based on the template and several
 other files in existing books (submodules). We should be able to choose a
 specific version of the files.
 
@@ -8,7 +8,8 @@ Assumptions:
 
 - no change/commit to the files in submodules. also no need to update the
   submodules to a new version.
-- submodules have been generated according to the template.
+- submodules have been generated according to the [TeachBooks
+  template](https://github.com/TeachBooks/template).
 
 In general, the command [`git submodule
 add`](https://git-scm.com/docs/gitsubmodules) clones a repository inside another
@@ -21,8 +22,11 @@ repository. For that you need the following:
 ## User input variables
 
 In `_toc.yml` you can define the external file you want to include in your book.
-The syntax would be
+The syntax below is suggested to have unique paths for each file:
+
+```yaml
 `external/<organization_name>/<repository_name>/<tag_branch_commit>/<path_to_file>`.
+```
 
 ## Workflow
 
@@ -57,7 +61,8 @@ The syntax would be
 6. (optional) to save space and also avoid any broken components, you may remove
    the files that are not needed in the submodule. For example, you may remove
    everything except the specified files. Howevere, this may cause problems if
-   the file contains relative links.
+   the file contains relative links. You may also set configs in the
+  `_config.yml`, see example below.
 7. Build the book using `jupyter-book build book/` in template repo.
 8. If everything is fine, commit `.gitmodules`, and `_toc.yml` and paths (staged
    by git submodule) and push to your book template repository.
@@ -90,7 +95,7 @@ This is an example without any checks explained in the workflow.
     ```
 
 4. Install requirements if needed:
-    You may check every requirements.txt file in the submodules and install them:
+    You may check every `requirements.txt` file in the submodules and install them:
 
     ```bash
     pip install -r requirements.txt
