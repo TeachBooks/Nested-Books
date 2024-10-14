@@ -1,3 +1,14 @@
 [submodule "book/external/MUDE"]
 	path = book/external/MUDE
 	url = https://github.com/TUDelft-CITG/MUDE
+[submodule "book/external/tudelft-citg/mude/main"]
+	path = book/external/tudelft-citg/mude/main
+	url = https://github.com/tudelft-citg/mude
+	branch = main
+[submodule "book/external/TeachBooks/Showing-Physics/main"]
+	path = book/external/TeachBooks/Showing-Physics/main
+	url = https://github.com/TeachBooks/Showing-Physics
+	branch = main
+[submodule "book/external/TUDelft-CITG/OpenCLSim/v1.6.2"]
+	path = book/external/TUDelft-CITG/OpenCLSim/v1.6.2
+	url = https://github.com/TUDelft-CITG/OpenCLSim
