@@ -66,6 +66,8 @@ The syntax below is suggested to have unique paths for each file:
 7. Build the book using `jupyter-book build book/` in template repo.
 8. If everything is fine, commit `.gitmodules`, and `_toc.yml` and paths (staged
    by git submodule) and push to your book template repository.
+9. You may speed up the cloning by using `--depth` in the submodule `add`
+   command.
 
 ## Example
 
@@ -116,3 +118,17 @@ Then build the book:
     ```bash
     jupyter-book build book/
     ```
+
+## Notes on using git submodule for nested books
+
+Pros:
+
+- Easy when nested submodules (submodules within submodules) are existed.
+- Storing only pointers to submodules repositories in the parent repository via
+  `.gitsubmodules` file.
+- Relative links or extra materials in the submodules are kept.
+
+Cons:
+
+- Having enough disk space to clone submodules for building the book.
+- The speed of cloning submodules in building the book.
