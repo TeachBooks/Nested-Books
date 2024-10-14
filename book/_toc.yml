@@ -3,3 +3,6 @@ root: intro.md
 
 chapters:
   - file: external/MUDE/book/intro.md
+  - file: external/tudelft-citg/mude/main/book/reliability-component/overview.md
+  - file: external/TeachBooks/Showing-Physics/main/book/Introduction/Python summary
+  - file: external/TUDelft-CITG/OpenCLSim/v1.6.2/book/Command_basics.md
