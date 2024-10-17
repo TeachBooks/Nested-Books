@@ -132,3 +132,5 @@ Cons:
 
 - Having enough disk space to clone submodules for building the book.
 - The speed of cloning submodules in building the book.
+- The content cannot be edited directly through the GitHub interface of the non-submodule book.
+- 
