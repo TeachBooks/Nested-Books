@@ -1,13 +1,10 @@
-# Share content between books
+# Git workflow: Share content between books
 
-```{admonition} User types
-:class: tip
-This section is useful for user type 4-6.
-```
+The git feature of submodules allows you to reuse content of other books (or other repositories with markdown and/or jupyter notebooks) in your book.
 
 ## Adding external content to your book
 
-If you want to add the repository of an external book to the repository of your book you can do so by using Git Submodules. Your book is then called the parent book. This will basically nest the external repository in the parent repository, and it will appear as if we've manually copied the entire repository into the parent repository. I will use [this repository](https://github.com/TeachBooks/Nested-Books) as an example parent repository, and I'm going to add parts of an old [MUDE book](https://github.com/tudelft-citg/mude).
+If you want to add the repository of an external book to the repository of your book you can do so by importing the other repository using Git Submodules. Your book is then called the parent book. This will basically nest the external repository in the parent repository, and it will appear as if we've manually copied the entire repository into the parent repository. I will use [this repository](https://github.com/TeachBooks/Nested-Books) as an example parent repository, and I'm going to add parts of an old [MUDE book](https://github.com/tudelft-citg/mude).
 
 First, let's define the location where the external book should live. Good practice is to put it in `book/external` to highlight the fact that the content is in fact part of an external book. So the first step is to create the subdirectory `book/external/` in your repository. If you'd like to do that with the command line interface (CLI) you can do so as follows:
 
