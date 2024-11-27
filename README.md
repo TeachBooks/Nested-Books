@@ -1,4 +1,4 @@
-# Git workflow: Share content between books
+# Sharing content between books
 
 ```{admonition} User types
 :class: tip
