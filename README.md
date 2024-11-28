@@ -4,7 +4,8 @@
 :class: tip
 This section is useful for user type 4-5.
 ```
-
++++
+{bdg-dark}`Git Workflow`
 The git feature of submodules allows you to reuse content of other books (or other repositories with markdown and/or jupyter notebooks) in your book.
 
 ## Adding external content to your book
