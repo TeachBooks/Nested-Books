@@ -313,7 +313,6 @@ align: center
 ---
 Change external 
 ```
-Add 
 
 If you do it directly in the external book repo, you need to pull those updates in your codespace by clicking the branch and refresh:
 
