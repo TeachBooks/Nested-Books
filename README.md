@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/79c2003d-c7be-46db-b10b-ff771cb791d5)# Git workflow: Share content between books
+# Git workflow: Share content between books
 
 The git feature of submodules allows you to reuse content of other books (or other repositories with markdown and/or jupyter notebooks) in your book.
 
