@@ -315,7 +315,7 @@ Directly commit the change shown
 ````{tab-set}
 ```{tab-item} ... using CLI
     git add .
-    git commit -m 'rm submodule: logstash'
+    git commit -m 'rm submodule: <external repository>'
     git push
 ```
 ```{tab-item} ... using GitHub Desktop
@@ -324,7 +324,7 @@ Directly commit and push the changes shown
 ````
 
 **8. Delete repo and clone again**
-For some reason the existence of the submodule is stored locally somewhere. To prevent further issues, deleted the full parent repository and reclone it.
+For some reason the existence of the submodule is stored locally somewhere. To prevent further issues, you might want to delete the full parent repository and reclone it.
 
 **9. Merge with other branches**
 Merge this change with all other branches which still have this submodule.
