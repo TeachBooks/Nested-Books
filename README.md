@@ -263,13 +263,16 @@ git clone --recurse-submodules <link to parent repository>
 
 ## The external book is updated
 
-When you add the external book as a submodule to your repository, Git will pin its version. When the external book is updated, you'll need to manually pull the updates to the parent book:
+When you add the external book as a submodule to your repository, Git will pin its version. When the external book is updated, you'll need to manually pull the updates to the parent book or use the automatic GitHub Dependabot:
 
-### ... using CLI
+### Autoamtic using GitHub Dependabot:
+TO BE WRITTEN
+
+### Manual using CLI
 ```
 git submodule update --remote
 ```
-### ... using GitHub Desktop
+### Manual using GitHub Desktop
 
 First, pull changes for the external repository (which is stored locally in your parent repository)
 
