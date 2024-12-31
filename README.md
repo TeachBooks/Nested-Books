@@ -16,10 +16,31 @@ Now we can add the external book in this folder. You'll need to use the CLI for 
 
 ```
 cd book/external
-git submodule add <https-clone link to external book (https://github.com/tudelft-citg/mude.git for example)>
+git submodule add -b <branch> <https-link>
 ```
 
-You can see that the `book/external` directory now contains a directory with the name of the external repository (`MUDE` for example), so the result is equivalent to simply running a `git clone` inside `book/external`. What is important to note here is that the contents of `book/external/<external repository>` are not part of the parent repository. Instead, `book/external/<external repository>` is a fully functional Git Repository itself. This means that you can make changes to the external book, from inside the parent book.
+where
+- `<branch>` should be the branch you want of the external book/repository. If you only want the default branch, omit the part `-b <branch>` from the command.
+- `<https-link>` is the link to the external book/repository,  for example `https://github.com/tudelft-citg/mude.git`.
+
+You can see that the `book/external` directory now contains a directory with the name of the external repository (`MUDE` for example), so the result looks equivalent to simply running a `git clone` inside `book/external`, however what is important to note here is that the contents of `book/external/<external repository>` are not part of the parent repository. Instead, `book/external/<external repository>` is a fully functional Git Repository itself. This means that you can make changes to the external book, from inside the parent book.
+
+If you did not add the submodule with an explicit branch, you can still do this by adding this to the `.submodules` file that has been created. In our example, we see the lines
+
+```
+[submodule "book/external/MUDE"]
+	path = book/external/MUDE
+	url = https://github.com/TUDelft-CITG/MUDE
+```
+
+Changes these to
+```
+[submodule "book/external/MUDE"]
+	path = book/external/MUDE
+	url = https://github.com/TUDelft-CITG/MUDE
+  branch = <branch>
+```
+with again `<branch>` replaced by the preferred branch.
 
 After the `git submodule` command, you can make a commit to your parent repositery:
 
@@ -263,10 +284,58 @@ git clone --recurse-submodules <link to parent repository>
 
 ## The external book is updated
 
-When you add the external book as a submodule to your repository, Git will pin its version. When the external book is updated, you'll need to manually pull the updates to the parent book or use the automatic GitHub Dependabot:
+When you add the external book as a submodule to your repository, Git will pin its version. When the external book is updated, you'll need to manually pull the updates to the parent book or use the automatic GitHub Dependabot.
 
-### Autoamtic using GitHub Dependabot:
-TO BE WRITTEN
+### Automatic using GitHub Dependabot:
+
+It is possible to set up Github in such a way that periodically and on demand the submodules in the _default_ branch of the parent repository. To enable this, perform the following steps:
+
+1. Go to your repository on [Github](https://github.com/).
+1. Choose **Settings**.
+1. Choose **Code security**.
+1. Choose **Enable** behind _Dependabot version updates_.
+1. In opened file editor, edit the code to resemble below code and select "Commit changes..."
+
+```yml
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "gitsubmodule" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "23:59"
+```
+
+This will check every sunday around midnight (UTC) whether any of the submodules have a newer commit in the preferred branch. If so, several things will happen:
+1. A new branch starting with _dependabot_ will be created in the repository and any relevant workflows will be triggered.
+1.  A _pull request_ will be created to pull the new branch into the _default_ branch. This pull request must be manually reviewed and merged. Afterwards the _dependabot_ branch can be deleted.
+
+If the workflow `call-deploy-book` is used, and the _dependabot_ branch should not be built and deployed (and all other branches you do want),  you can achieve this by adding the next to the file `call-deploy-book.yml`:
+
+```yaml
+on:
+  push:
+    branches:
+    - '**'
+    - '!dependabot**'
+```
+
+If you want another scheduled workflow, see [Dependabot options reference](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference#schedule-) for the options.
+
+If you want to manually trigger the Dependabot workflow, you can do this by doing the next steps:
+
+1. Go to your repository on [Github](https://github.com/).
+1. Choose **Insights**.
+1. Choose **Dependency graph**.
+1. Choose **Dependabot**.
+1. Choose **Recent update jobs**.
+1. Choose **Check for updates**.
 
 ### Manual using CLI
 ```
