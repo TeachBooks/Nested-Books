@@ -427,9 +427,9 @@ If you want to manually trigger the Dependabot workflow, you can do this by doin
 1. Choose **Recent update jobs**.
 1. Choose **Check for updates**.
 
-````{tab-item} automatic using GitHub Dependabot
-To be written
+
 ````
+
 ````{tab-item} manual using CLI
 ```
 git submodule update --remote
