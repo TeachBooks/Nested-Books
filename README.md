@@ -334,7 +334,7 @@ If you want to manually trigger the Dependabot workflow, you can do this by doin
 1. Choose **Insights**.
 1. Choose **Dependency graph**.
 1. Choose **Dependabot**.
-1. Choose **Recent update jobs**.
+1. Choose **Recent update jobs** next to `.gitmodules`.
 1. Choose **Check for updates**.
 
 ### Manual using CLI
