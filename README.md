@@ -38,7 +38,7 @@ Changes these to
 [submodule "book/external/MUDE"]
 	path = book/external/MUDE
 	url = https://github.com/TUDelft-CITG/MUDE
-  branch = <branch>
+        branch = <branch>
 ```
 with again `<branch>` replaced by the preferred branch.
 
