@@ -1,4 +1,4 @@
-# Git workflow: Share content between books
+# Git workflow: Share content between books using submodules
 
 When creating books, you might want to reuse material from other people or from other books you made. In some cases you might even want to have the exact same material into your book. You could do so by manually copying material over. However, whenever the source material is updated, you have to do that again. As an alternative, you can use the underlying git system to refer to the source file directly. This allows you to pick a specific version, or keep the most up-to-date version of it. This pages explains how to do so using 'git submodules'. However, please consider using our TeachBooks feature with an external toc (in development, more information will follow soon), as it is easier to use.
 
