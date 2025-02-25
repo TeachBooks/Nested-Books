@@ -296,7 +296,7 @@ It is possible to set up Github in such a way that periodically and on demand th
 1. Choose **Enable** behind _Dependabot version updates_.
 1. In opened file editor, edit the code to resemble below code and select "Commit changes..."
 
-```ymal
+```yaml
 # To get started with Dependabot version updates, you'll need to specify which
 # package ecosystems to update and where the package manifests are located.
 # Please see the documentation for all configuration options:
