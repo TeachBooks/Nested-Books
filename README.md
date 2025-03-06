@@ -12,7 +12,13 @@ This section is useful for user type 4-5.
 ```{tip}
 This feature is now considered deprecated by the TeachBooks Development Team because we have developed an easier way to incorporate content from other source via the "external content" module in the `teachbooks` Python Package. You can find out more by visiting the [TeachBooks Manual](https://teachbooks.io/manual/features/external_toc.html) or [GitHub repository](https://github.com/teachbooks/teachbooks).
 
-Note, however, that if you are comfortable with the steeper learning curve, the submodules feature of Git is still useful for some use cases, for example, if you want to have all of the files in a submodule repository available in the main repository, if you would like to  use the dependabot feature to automatically update your book every time a commit is made in the submodule repository or if you prefer to update content based on a specific commit hash rather than a tag or branch. In fact, submodules is how we keep the pages in this manual up to date for each of our TeachBooks Tools!
+Note, however, that if you are comfortable with the steeper learning curve, the submodules feature of Git is still useful for some use cases, as it allows one to embed pages in a book which:
+- include local images referenced with raw-HTML code and relative filepath references,
+- refer to content in the `_static` folder of the other book (i.e., relative filepath references after book build),
+- are part of a private book (private repository),
+- _automatically_ notify you upon changes in the source book using Github's "Dependabot".
+
+More generally, you should consider submodules if you want to have all of the files in a submodule book repository available in the main book repository (especially during and after the book build process); if you would like to  use the dependabot feature to automatically update your book every time a commit is made in the submodule repository; or, if you prefer to update content based on a specific commit hash rather than a tag or branch. In fact, submodules is how we keep the pages in this manual up to date for each of our TeachBooks Tools!
 ```
 
 When creating books, you might want to reuse material from other people or from other books you made. In some cases you might even want to have the exact same material into your book. You could do so by manually copying material over. However, whenever the source material is updated, you have to do that again. As an alternative, you can use the underlying git system to refer to the source file directly. This allows you to pick a specific version, or keep the most up-to-date version of it. This pages explains how to do so using 'git submodules'
