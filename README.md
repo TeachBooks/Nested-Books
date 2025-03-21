@@ -346,6 +346,30 @@ If you want to manually trigger the Dependabot workflow, you can do this by doin
 1. Choose **Recent update jobs** next to `.gitmodules`.
 1. Choose **Check for updates**.
 
+If you've private repositories, expand `.github/dependabot.yml` to:
+
+```yaml
+version: 2
+registries:
+  submodule1-registry:
+    type: "git"
+    url: https://github.com/
+    username: x-access-token
+    password: ${{secrets.GH_PAT}}
+    
+updates:
+  - package-ecosystem: "gitsubmodule" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "23:59"
+    registries:
+      - submodule1-registry
+```
+
+`GH_PAT` should be a a personal access token added to the repository action secrets with 'repo' scope. If you're making use of the deploy-book-workflow, this is the same personal access token as required for cloning the submodules in the [deploy-book-workflow](https://github.com/TeachBooks/deploy-book-workflow/tree/main?tab=readme-ov-file#private-submodules)
+
 ### Manual using CLI
 ```
 git submodule update --remote
