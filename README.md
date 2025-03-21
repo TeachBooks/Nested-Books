@@ -438,6 +438,29 @@ If you want to manually trigger the Dependabot workflow, you can do this by doin
 1. Choose **Recent update jobs** next to <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" role="img" aria-labelledby="at3nhebt7uhg0dpjk0jboj3jpsarzidi" class="octicon" width="16" height="16"><title id="at3nhebt7uhg0dpjk0jboj3jpsarzidi">gitsubmodule</title><path d="M15.698 7.287L8.713.302a1.03 1.03 0 00-1.458 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 011.55 1.56l1.773 1.774a1.226 1.226 0 11-.734.691L8.579 5.965v4.352a1.226 1.226 0 11-1.008-.036V5.888a1.226 1.226 0 01-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 000 1.458l6.986 6.985a1.03 1.03 0 001.457 0l6.953-6.953a1.03 1.03 0 000-1.458z" fill="#F05133"></path></svg>`.gitmodules`.
 1. Choose **Check for updates**.
 
+If you've private repositories, expand `.github/dependabot.yml` to:
+
+```yaml
+version: 2
+registries:
+  submodule1-registry:
+    type: "git"
+    url: https://github.com/
+    username: x-access-token
+    password: ${{secrets.GH_PAT}}
+    
+updates:
+  - package-ecosystem: "gitsubmodule" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "23:59"
+    registries:
+      - submodule1-registry
+```
+
+`GH_PAT` should be a a personal access token added to the repository action secrets with 'repo' scope. If you're making use of the deploy-book-workflow, this is the same personal access token as required for cloning the submodules in the [deploy-book-workflow](https://github.com/TeachBooks/deploy-book-workflow/tree/main?tab=readme-ov-file#private-submodules)
 
 ````
 
