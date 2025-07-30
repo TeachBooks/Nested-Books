@@ -389,7 +389,6 @@ Commit this change to the parent repository, which will chang the commit to whic
 If you're using a GitLab/GitHub workflow, make sure you force it to fetch all the submodules as well. If you're using the TeachBooks GitHub/GitLab workflow, that has been taken care of.
 
 ## Delete submodules
-Deleting submodules is a bit notrocious... These steps [https://www.baeldung.com/ops/git-submodule-add-remove](https://www.baeldung.com/ops/git-submodule-add-remove) proved to be useful:
 
 ### 1. Checkout to main
 
@@ -402,46 +401,13 @@ git checkout main
 Select main branch
 
 
-### 2. Deinitialize submodule    
+### 2. Remove submodule Git directory
 
 ```
-git submodule deinit -f book/external/<external repository>
+git rm <path-to-submodule>, and commit.
 ```
 
-### 3. Remove submodule Git directory
-
-Directly from file explorer or
-
-```
-rm -rf .git/modules/book/external/<external repository>
-```
-
-### 4. Remove from `.gitmodules`
-
-Directly with text editor or:
-
-```
-git config -f .gitmodules --remove-section submodule.book/external/<external repository>
-```
-
-### 5. Stage Changes to `.gitmodules`
-
-#### ... using CLI
-```
-git add .gitmodules
-```
-#### ... using GitHub Desktop
-Directly commit the change shown
-
-
-
-### 6. Remove from Git cache
-
-```
-git rm --cached book/external<external repository>
-```
-
-### 7. Commit and push changes**
+### 3. Stage, commit and push changes
 
 #### ... using CLI
 ```
@@ -452,10 +418,7 @@ git push
 #### ... using GitHub Desktop
 Directly commit and push the changes shown
 
-### 8. Delete repo and clone again**
-For some reason the existence of the submodule is stored locally somewhere. To prevent further issues, you might want to delete the full parent repository and reclone it.
-
-### 9. Merge with other branches**
+### 4. Merge with other branches**
 Merge this change with all other branches which still have this submodule.
 
 ## More info
