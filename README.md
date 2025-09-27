@@ -9,7 +9,7 @@ This page reuses CC BY 4.0 licensed content from {cite:t}`nested`. {fa}`quote-le
 This section is useful for user type 4-5.
 ```
 
-{bdg-link-light}`Supported by Deploy Book workflow <https://teachbooks.io/manual/external/deploy-book-workflow/README.html>`
+{bdg-link-light}`Supported by Deploy Book workflow <../deploy-book-workflow/README.html>`
 
 ````
 
@@ -22,7 +22,7 @@ This section is useful for user type 4-5.
 When creating books, you might want to reuse material from other people or from other books you made. In some cases you might even want to have the exact same material into your book. You could do so by manually copying material over. However, whenever the source material is updated, you have to do that again. As an alternative, you can use the underlying git system to refer to the source file directly. This allows you to pick a specific version, or keep the most up-to-date version of it. This pages explains how to do so using 'git submodules'
 
 ```{tip}
-This feature is now considered deprecated by the TeachBooks Development Team because we have developed an easier way to incorporate content from other source via the "external content" module in the `teachbooks` Python Package. You can find out more by visiting the [TeachBooks Manual](https://teachbooks.io/manual/features/external_toc.html) or [GitHub repository](https://github.com/teachbooks/teachbooks).
+This feature is now considered deprecated by the TeachBooks Development Team because we have developed an easier way to incorporate content from other source via the "external content" module in the `teachbooks` Python Package. You can find out more by visiting the [](../../features/external_toc.md) or [GitHub repository](https://github.com/teachbooks/teachbooks).
 Note, however, that if you are comfortable with the steeper learning curve, the submodules feature of Git is still useful for some use cases, as it allows one to embed pages in a book which:
 - include local images referenced with raw-HTML code and relative filepath references,
 - refer to content in the `_static` folder of the other book (i.e., relative filepath references after book build),
