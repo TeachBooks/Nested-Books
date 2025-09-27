@@ -8,6 +8,9 @@ This page reuses CC BY 4.0 licensed content from {cite:t}`nested`. {fa}`quote-le
 :class: tip
 This section is useful for user type 4-5.
 ```
+
+{bdg-link-light}`Supported by Deploy Book workflow <https://teachbooks.io/manual/external/deploy-book-workflow/README.html>`
+
 ````
 
 # Share content between books using submodules
