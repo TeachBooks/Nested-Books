@@ -207,7 +207,7 @@ It is helpful to make the distinction between the external repository (as a 'fre
 
 ![Nested External repository](figures/nested_external_1.png)
 
-From the path, you can see that the bottom `TeachBooks` repository is nested while the top one is not (the parent repository is jupyter-book-manual). We will call the nested repository the `external repository` from now on. In order to avoid confusion, you can give an 'alias' to the external repository by `Right Click` - `Create alias`.
+From the path, you can see that the bottom `TeachBooks` repository is nested while the top one is not (the parent repository is the manual). We will call the nested repository the `external repository` from now on. In order to avoid confusion, you can give an 'alias' to the external repository by `Right Click` - `Create alias`.
 
 ![Create Alias](figures/alias.png)
 
